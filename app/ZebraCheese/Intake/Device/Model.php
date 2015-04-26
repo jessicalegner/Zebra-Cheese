@@ -2,12 +2,12 @@
 
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
-class Type extends \Eloquent {
+class Model extends \Eloquent {
 
     use SoftDeletingTrait;
-
+    
     protected $dates = ['deleted_at'];
-    protected $fillable = array('name');
+    protected $fillable = array('name', 'brand_id');
     protected $gaurded = array(
         'id',
         'uuid'
@@ -15,6 +15,10 @@ class Type extends \Eloquent {
 
     public function devices() {
         return $this->hasMany('ZebraCheese\Intake\Device\Device');
+    }
+
+    public function brand() {
+        return $this->belongsTo('ZebraCheese\Intake\Device\Brand');
     }
 }
 

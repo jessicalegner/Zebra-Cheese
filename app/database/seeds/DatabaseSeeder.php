@@ -9,9 +9,23 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Eloquent::unguard();
+        Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+	    $tables = array(
+			'types',
+			'brands',
+			'models'
+        );
+
+        foreach ($tables as $table){
+			DB::table($table)->truncate();
+		}
+
+		$this->call('TypesTableSeeder');
+		$this->call('BrandsTableSeeder');
+		$this->call('ModelsTableSeeder');
+		$this->call('DevicesTableSeeder');
+		$this->call('CustomerTableSeeder');
 	}
 
 }

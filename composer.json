@@ -8,17 +8,20 @@
 		"laravel/framework": "4.2.*"
 	},
 	"require-dev": {
-    	"way/generators": "~2.0"
+    	"way/generators": "~2.0",
+    	"fzaninotto/faker": "v1.3.0"
 	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",
-			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		"psr-4": {
+			"ZebraCheese\\": "app/ZebraCheese"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [

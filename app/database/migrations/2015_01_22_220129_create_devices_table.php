@@ -15,11 +15,10 @@ class CreateDevicesTable extends Migration {
 		Schema::create('devices', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('device_type_id');
-			$table->integer('device_brand_id');
-			$table->string('uuid')->unique();
-			$table->string('model')->nullable();
+			$table->integer('model_id');
+			$table->integer('type_id');
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 
